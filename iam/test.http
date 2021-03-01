@@ -1,2 +1,12 @@
 GET https://localhost:6443/api/v1/pods HTTP/1.1
-Authorization: Bearer token123
+Authorization: Bearer supersecureadmin
+
+
+###
+GET https://localhost:6443/metrics HTTP/1.1
+Authorization: Bearer supersecureadmin
+
+
+###
+GET https://localhost:6443/api/v1/pods HTTP/1.1
+Authorization: Bearer supersecuredeveloper
