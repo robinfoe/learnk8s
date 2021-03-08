@@ -2,7 +2,9 @@
 .PHONY: build
 
 
-
+VER_CONTOUR=release-1.13
+VER_CERT_MANAGER=v1.2.0
+# VER_OPA=release-3.3
 
 
 
@@ -21,5 +23,21 @@ cluster.build:
 cluster.up: 
 	./kind/kind-cluster.sh up
 
+
+#cluster.down: @ start kind cluster with 1 master and 1 worker
 cluster.down: 
 	./kind/kind-cluster.sh down
+
+
+#cluster.deploy.contour: @ deploy Contour Ingress
+cluster.deploy.contour:
+	./kind/asset/contour/install-contour-release.sh ${VER_CONTOUR}
+
+#cluster.deploy.certmanager: @ deploy Cert Manager
+cluster.deploy.certmanager:
+	./kind/asset/cert-manager/install-cert-manager.sh ${VER_CERT_MANAGER}
+
+#cluster.deploy.opa: @ deploy OPA 
+cluster.deploy.opa:
+	./kind/asset/opa/install-opa-release.sh 
+	# ${VER_OPA}

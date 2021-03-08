@@ -38,7 +38,7 @@ The token should be arranged in the following format
 
    ```
   
- - Head to master node and amend static pod definition to include the 
+ - Head to master node and amend static pod definition to include the following
    ```yml
     ## file located at /etc/kubernetes/manifests/kube-apiserver.yaml
     kind: Pod
@@ -68,6 +68,6 @@ The token should be arranged in the following format
             ## add usr-security volumes to host tanzu-token.csv
             - name: usr-security
               readOnly: true
-              mountPath: /usr/share/security ## tanzu-token.csv shoudl be availabe in this host path
+              mountPath: /usr/share/security ## tanzu-token.csv should be availabe in this host path
          ......
    ```
