@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: shellops
+  namespace: shellops
+  name: shellops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shellops
+  template:
+    metadata:
+      labels:
+        app: shellops
+      name: shellops
+    spec:
+      serviceAccountName: monitor-events-acc
+      containers:
+        - name: shellops
+          image: flant/shell-operator:latest
+          volumeMounts:
+            - readOnly: false
+              mountPath: /hooks
+              name: shell-ops-hook
+      volumes:
+        - name: shell-ops-hook
+          configMap: 
+            name: shell-ops-hook
+            defaultMode: 0777

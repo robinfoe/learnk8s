@@ -41,3 +41,8 @@ cluster.deploy.certmanager:
 cluster.deploy.opa:
 	./kind/asset/opa/install-opa-release.sh 
 	# ${VER_OPA}
+
+
+#cluster.deploy.shellops: @ deploy Shell Operator with Example
+cluster.deploy.shellops:
+	./kind/asset/shellops/install-shellops.sh
