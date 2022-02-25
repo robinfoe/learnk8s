@@ -1,0 +1,5 @@
+command
+
+kind load docker-image praqma/network-multitool:latest --name learnk8s
+
+
